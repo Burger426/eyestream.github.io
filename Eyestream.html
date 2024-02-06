@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eyestream - Your Streaming Platform</title>
+    <style>
+        :root {
+            --footer-height: 15px; /* Adjust this variable to change the footer height */
+        }
+
+        body {
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0e0e10;
+            color: #fff;
+        }
+
+        header {
+            background-color: #6441a5;
+            padding: 15px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .content-section {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #18181b;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .embed-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio for video content */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 110%; 
+            height: 110%;
+            border-radius: 0px;
+        }
+
+        h2 {
+            color: #fff;
+        }
+
+        footer {
+            background-color: #6441a5;
+            padding: var(--footer-height) 15px;
+            text-align: center;
+            color: #fff;
+            position: static;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Eyestream</h1>
+        <p>Your Ultimate Streaming Platform</p>
+    </header>
+
+    <!-- First Featured Content -->
+    <div class="content-section">
+        <h2>Featured Content 1</h2>
+        <div class="embed-container">
+            <!-- Content will be loaded here -->
+            <iframe src="https://mein.toubiz.de/api/v1/article/c9271e27-be47-4c4f-aa22-71d333be850d/mainImage?format=image/jpeg&width=1900" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p>Description for Featured Content 1.</p>
+    </div>
+
+    <!-- Second Featured Content -->
+    <div class="content-section">
+        <h2>Featured Content 2</h2>
+        <div class="embed-container">
+            <!-- Content will be loaded here -->
+            <iframe src="https://transit-finder.com/" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p>Description for Featured Content 2.</p>
+    </div>
+
+    <!-- Add more content sections as needed -->
+
+    <footer>
+        <p>&copy; 2024 Eyestream - All Rights Reserved</p>
+    </footer>
+</body>
+</html>
