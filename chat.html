@@ -4,8 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eyestream - Chat</title>
+
     <style>
-        /* Your styles here */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-section {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        #chat-messages {
+            max-height: 300px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .chat-input {
+            display: flex;
+        }
+
+        input {
+            flex: 1;
+            padding: 8px;
+        }
+
+        button {
+            padding: 8px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -14,10 +60,11 @@
     </header>
 
     <div class="chat-section">
-        <!-- Retrieve the username from the URL parameters -->
-        <h2>Welcome, <span id="username"></span>!</h2>
-        <p>Start chatting here...</p>
-        <!-- Your chat interface goes here -->
+        <div id="chat-messages"></div>
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
     </div>
 
     <footer>
@@ -25,10 +72,22 @@
     </footer>
 
     <script>
-        // JavaScript to extract and display the username from the URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const username = urlParams.get('username');
-        document.getElementById('username').textContent = username || 'Guest';
+        function sendMessage() {
+            const messageInput = document.getElementById('message-input');
+            const message = messageInput.value;
+
+            if (message.trim() !== '') {
+                const chatMessages = document.getElementById('chat-messages');
+                const messageElement = document.createElement('div');
+                messageElement.className = 'chat-message';
+                messageElement.textContent = message;
+                chatMessages.appendChild(messageElement);
+
+                // Clear the input field after sending the message
+                messageInput.value = '';
+            }
+        }
     </script>
 </body>
 </html>
+
