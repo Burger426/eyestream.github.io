@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eyestream - Chat</title>
+    <style>
+        /* Your styles here */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Eyestream Chat</h1>
+    </header>
+
+    <div class="chat-section">
+        <!-- Retrieve the username from the URL parameters -->
+        <h2>Welcome, <span id="username"></span>!</h2>
+        <p>Start chatting here...</p>
+        <!-- Your chat interface goes here -->
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Eyestream - All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // JavaScript to extract and display the username from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        document.getElementById('username').textContent = username || 'Guest';
+    </script>
+</body>
+</html>
