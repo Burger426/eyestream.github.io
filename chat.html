@@ -144,8 +144,45 @@
 
                 // Clear the input field after sending the message
                 messageInput.value = '';
+
+                // Remove the message after 5 seconds
+                setTimeout(() => {
+                    chatMessages.removeChild(messageElement);
+                }, 5000);
             }
         }
+
+        // Simulate a chat bot sending messages every 3 seconds
+        setInterval(function() {
+            const chatMessages = document.getElementById('chat-messages');
+            const botMessage = document.createElement('div');
+            botMessage.className = 'chat-message';
+            botMessage.textContent = 'Papalatte: Alter!!!';
+            chatMessages.appendChild(botMessage);
+
+            // Remove the bot message after 5 seconds
+            setTimeout(() => {
+                chatMessages.removeChild(botMessage);
+            }, 9000);
+        }, 12000);
+
+        setInterval(function() {
+            const chatMessages = document.getElementById('chat-messages');
+            const botMessage = document.createElement('div');
+            botMessage.className = 'chat-message';
+            botMessage.textContent = 'DavidBost: Was geht den da ab?';
+            chatMessages.appendChild(botMessage);
+
+        }, 150000);
+
+        setInterval(function() {
+            const chatMessages = document.getElementById('chat-messages');
+            const botMessage = document.createElement('div');
+            botMessage.className = 'chat-message';
+            botMessage.textContent = 'Papalatte: Ich hasse Belgien';
+            chatMessages.appendChild(botMessage);
+
+        }, 250000);
     </script>
 </body>
 </html>
