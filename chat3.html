@@ -96,27 +96,19 @@
         <h1>Eyestream Chat</h1>
     </header>
 
-    <!-- First Featured Content -->
     <div class="content-section">
-        <h2>Eyestream als Roter KLN</h2>
-        <div class="embed-container">
-            <a href="chat3.html?username=DepressiverHuan">
-           <div id="featured-video">
+        <!-- Featured Content Section -->
+        <div id="featured-video">
             <!-- Replace 'your-video-id' with the actual YouTube video ID -->
-            <iframe width="720" height="480" src="https://10.129.207.152:8080" frameborder="0" allowfullscreen></iframe>
+            <iframe width="800" height="450" src="http://192.168.178.21:8080/video" frameborder="0" allowfullscreen></iframe>
         </div>
-            </a>
-        </div>
-        <p>Bin grad in der Schule</p>
-    </div>
-
 
         <!-- Chat Section -->
         <div class="chat-section">
             <div id="chat-messages"></div>
             <div class="chat-input">
                 <!-- Predefined username -->
-                <input type="hidden" id="username-input" value="DepressiverHuan">
+                <input type="hidden" id="username-input" value="YourUsername">
                 <input type="text" id="message-input" placeholder="Type your message...">
                 <button onclick="sendMessage()">Send</button>
             </div>
@@ -162,7 +154,7 @@
             const chatMessages = document.getElementById('chat-messages');
             const botMessage = document.createElement('div');
             botMessage.className = 'chat-message';
-            botMessage.textContent = 'Papalatte: Schaut gut aus';
+            botMessage.textContent = 'Papalatte: Alter!!!';
             chatMessages.appendChild(botMessage);
 
             // Remove the bot message after 5 seconds
@@ -175,7 +167,7 @@
             const chatMessages = document.getElementById('chat-messages');
             const botMessage = document.createElement('div');
             botMessage.className = 'chat-message';
-            botMessage.textContent = 'DavidBost: Schlechte Connection oder vorab aufgenommen?';
+            botMessage.textContent = 'DavidBost: Was geht den da ab?';
             chatMessages.appendChild(botMessage);
 
         }, 150000);
@@ -184,7 +176,7 @@
             const chatMessages = document.getElementById('chat-messages');
             const botMessage = document.createElement('div');
             botMessage.className = 'chat-message';
-            botMessage.textContent = 'Papalatte: Ich war da mal';
+            botMessage.textContent = 'Papalatte: Ich hasse Belgien';
             chatMessages.appendChild(botMessage);
 
         }, 250000);
