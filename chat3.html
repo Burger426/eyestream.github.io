@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eyestream - Chat</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0e0e10;
+            color: #afafaf;
+        }
+
+        header {
+            background-color: #961A00;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 30px auto;
+            background-color: #961A00;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        #featured-video {
+            width: 65%;
+            max-width: 800px;
+            height: auto;
+            margin-right: 30px;
+        }
+
+        .chat-section {
+            width: 30%;
+            background-color: #111111;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        #chat-messages {
+            max-height: 400px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .chat-input {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 100%;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 15px;
+            background-color: #c94040;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #961A00;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Eyestream Chat</h1>
+    </header>
+
+    <div class="content-section">
+        <!-- Featured Content Section -->
+        <div id="featured-video">
+            <!-- Replace 'your-video-id' with the actual YouTube video ID -->
+            <video autoplay muted width="768" height="576" >
+                <source src="content/content1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="chat-section">
+            <div id="chat-messages"></div>
+            <div class="chat-input">
+                <!-- Predefined username -->
+                <input type="hidden" id="username-input" value="DepressiverHuan">
+                <input type="text" id="message-input" placeholder="Type your message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Eyestream - All Rights Reserved</p>
+    </footer>
+
+    <script>
+        const messageInput = document.getElementById('message-input');
+
+        messageInput.addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            const usernameInput = document.getElementById('username-input');
+            const message = messageInput.value;
+
+            if (message.trim() !== '') {
+                const chatMessages = document.getElementById('chat-messages');
+                const messageElement = document.createElement('div');
+                messageElement.className = 'chat-message';
+                messageElement.textContent = `${usernameInput.value}: ${message}`;
+                chatMessages.appendChild(messageElement);
+
+                // Clear the input field after sending the message
+                messageInput.value = '';
+
+                // Remove the message after 5 seconds
+                setTimeout(() => {
+                    chatMessages.removeChild(messageElement);
+                }, 5000);
+            }
+        }
+
+        // Simulate a chat bot sending messages every 3 seconds
+        setInterval(function() {
+            const chatMessages = document.getElementById('chat-messages');
+            const botMessage = document.createElement('div');
+            botMessage.className = 'chat-message';
+            botMessage.textContent = 'Papalatte: Schaut gut aus';
+            chatMessages.appendChild(botMessage);
+
+            // Remove the bot message after 5 seconds
+            setTimeout(() => {
+                chatMessages.removeChild(botMessage);
+            }, 9000);
+        }, 12000);
+
+        setInterval(function() {
+            const chatMessages = document.getElementById('chat-messages');
+            const botMessage = document.createElement('div');
+            botMessage.className = 'chat-message';
+            botMessage.textContent = 'DavidBost: Schlechte Connection oder vorab aufgenommen?';
+            chatMessages.appendChild(botMessage);
+
+        }, 150000);
+
+        setInterval(function() {
+            const chatMessages = document.getElementById('chat-messages');
+            const botMessage = document.createElement('div');
+            botMessage.className = 'chat-message';
+            botMessage.textContent = 'Papalatte: Ich war da mal';
+            chatMessages.appendChild(botMessage);
+
+        }, 250000);
+    </script>
+</body>
+</html>
